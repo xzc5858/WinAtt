@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16E2BC81-64F3-440B-A036-5BBC5D47AA43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinAtt</RootNamespace>
+    <AssemblyName>WinAtt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="attDataSet.cs">
+      <DependentUpon>attDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="attDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>attDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CmnLoadDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CmnLoadDataForm.Designer.cs">
+      <DependentUpon>CmnLoadDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertUtil.cs" />
+    <Compile Include="DBLink.cs" />
+    <Compile Include="frmNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewUser.Designer.cs">
+      <DependentUpon>frmNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLLink.cs" />
+    <Compile Include="FixingAccess\ZKAccess.cs" />
+    <Compile Include="frmEnterFinger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEnterFinger.Designer.cs">
+      <DependentUpon>frmEnterFinger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewPension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewPension.Designer.cs">
+      <DependentUpon>frmNewPension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOutline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOutline.Designer.cs">
+      <DependentUpon>frmOutline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyThread.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLHelper.cs" />
+    <Compile Include="SqlHelperParameterCache.cs" />
+    <Compile Include="frmUserOutLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserOutLine.Designer.cs">
+      <DependentUpon>frmUserOutLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="users.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>users.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CmnLoadDataForm.resx">
+      <DependentUpon>CmnLoadDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPension.resx">
+      <DependentUpon>frmNewPension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewUser.resx">
+      <DependentUpon>frmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOutline.resx">
+      <DependentUpon>frmOutline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserOutLine.resx">
+      <DependentUpon>frmUserOutLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="attDataSet.xsc">
+      <DependentUpon>attDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="attDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>attDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="attDataSet.xss">
+      <DependentUpon>attDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="users.xsc">
+      <DependentUpon>users.xsd</DependentUpon>
+    </None>
+    <None Include="users.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>users.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="users.xss">
+      <DependentUpon>users.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
