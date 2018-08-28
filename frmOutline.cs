@@ -15,8 +15,9 @@ namespace WinAtt
         ZKAccess FG = ZKAccess.Instance;
         DataTable dv;
         private delegate void CmnXhLoadHandler(out double b);
-        private delegate void CmnZDLoadDataHandler(DataRow dr, out DataTable dt,out string cback);
+        private delegate void CmnZDLoadDataHandler(DataRow dr, out DataTable dt, out string cback);
         public DataTable attdt;
+        private bool zhengfan;
         public frmOutline()
         {
             InitializeComponent();
@@ -53,10 +54,10 @@ namespace WinAtt
                         DataTable dt = (DataTable)attdt.Clone();
                         string str = "";
                         listBox1.Items.Add("开始连接指纹机" + dv["MachineNumber"].ToString());
-                        IAsyncResult result = handler.BeginInvoke(dv, out dt,out str, null, null);
+                        IAsyncResult result = handler.BeginInvoke(dv, out dt, out str, null, null);
                         form.AsyncResult = result;
                         form.ShowDialog(this);
-                        handler.EndInvoke(out dt,out str, result);
+                        handler.EndInvoke(out dt, out str, result);
                         listBox1.Items.Add(str);
                     }
                 }
@@ -70,11 +71,12 @@ namespace WinAtt
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            zhengfan = true;
             if (!timer1.Enabled)
             {
                 timer1.Start();
                 CmnXhLoadHandler handler = new CmnXhLoadHandler(XHCmnDownLoadData);
-                using (CmnLoadDataForm form = new CmnLoadDataForm("循环下载数据正在运行中..."))
+                using (CmnLoadDataForm form = new CmnLoadDataForm("正循环下载数据正在运行中..."))
                 {
                     double b;
                     IAsyncResult result = handler.BeginInvoke(out b, null, null);
@@ -107,7 +109,7 @@ namespace WinAtt
         /// </summary>
         /// <param name="dr"></param>
         /// <param name="dt"></param>
-        public void ZDCmnDownLoadData(DataRow dv, out DataTable dt,out string callback)
+        public void ZDCmnDownLoadData(DataRow dv, out DataTable dt, out string callback)
         {
             dt = (DataTable)attdt.Clone();
             callback = "";
@@ -141,7 +143,7 @@ namespace WinAtt
                         if (ds == null)
                         {
                             //DataRow ndr = dt.NewRow();
-                            
+
                             //ndr["EnrollNumber"] = sdwEnrollNumber;
                             //ndr["VerifyMethod"] = idwVerifyMode;
                             //ndr["InOutMode"] = idwInOutMode;
@@ -248,7 +250,7 @@ namespace WinAtt
                 bool DownloadIng = Convert.ToBoolean(dr["DownloadIng"]);
                 ///假如今天下载，是否已经完成。不然会反复地下载。
                 bool complete = Convert.ToBoolean(dr["complete"]);
-                
+
 
                 if (!(DownloadIng || complete))
                 {
@@ -256,7 +258,11 @@ namespace WinAtt
                     DBLinker.Linker.ExecuteNonQuery("UPDATE d_system set DownloadIng=1");
                     timer1.Stop();
                     MyThread wc = new MyThread();
-                    DataTable dv = DBLinker.Linker.ExecuteDataTable("SELECT *  FROM [d_Machines]");
+                    DataTable dv;
+                    if (zhengfan)
+                        dv = DBLinker.Linker.ExecuteDataTable("SELECT top 30 *  FROM [d_Machines] order by id ");
+                    else
+                        dv = DBLinker.Linker.ExecuteDataTable("SELECT top 30 *  FROM [d_Machines] order by id desc");
                     bool rc = ThreadPool.QueueUserWorkItem(new WaitCallback(wc.RunProcess), dv);
                     if (rc)
                     {
@@ -274,10 +280,47 @@ namespace WinAtt
             else
             {
                 DBLinker.Linker.ExecuteNonQuery("UPDATE d_system set complete=0");
-                listBox1.Items.Add("下载完成");
+                //listBox1.Items.Add("下载完成");
 
             }
             //如果只是这个时间可以下载，但是不符合以上两个条件，也不能下载。
+        }
+        //后循环下载
+        private void button3_Click(object sender, EventArgs e)
+        {
+            zhengfan = false;
+            if (!timer1.Enabled)
+            {
+                timer1.Start();
+                CmnXhLoadHandler handler = new CmnXhLoadHandler(XiaXHCmnDownLoadData);
+                using (CmnLoadDataForm form = new CmnLoadDataForm("反循环下载数据正在运行中..."))
+                {
+                    double b;
+                    IAsyncResult result = handler.BeginInvoke(out b, null, null);
+                    form.AsyncResult = result;
+                    form.ShowDialog(this);
+                    handler.EndInvoke(out b, result);
+                }
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// 循环下载数据
+        /// </summary>
+        /// <param name="b"></param>
+        public void XiaXHCmnDownLoadData(out double b)
+        {
+            TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
+            TimeSpan end = new TimeSpan(DateTime.Now.AddYears(1).Ticks);
+            TimeSpan span = end.Subtract(start).Duration();
+            b = span.TotalSeconds;
+            while (true)
+            {
+
+            }
         }
     }
 }
