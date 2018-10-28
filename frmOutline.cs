@@ -242,6 +242,13 @@ namespace WinAtt
                         start = true;
                     }
                     break;
+                  default:
+                    DateTime lastDay = Convert.ToDateTime(DateTime.Now.AddMonths(1).ToString("yyyy-MM-01")).AddDays(-1);
+                    if (DateTime.Now.ToString("yyyy-MM-dd") == lastDay)
+                    {
+                        start = true;
+                    }
+                    break;
             }
             /////可以下载，
             if (start)
