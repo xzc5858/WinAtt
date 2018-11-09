@@ -27,13 +27,27 @@ namespace WinAtt
             attdt.Columns.Add(new DataColumn("InOutMode", typeof(int)));
             attdt.Columns.Add(new DataColumn("date", typeof(DateTime)));
             attdt.Columns.Add(new DataColumn("WorkCode", typeof(int)));
+            this.d_machinesTableAdapter.Fill(this.attDataSet.d_machines);
         }
 
         private void frmOutline_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“attDataSet.d_machines”中。您可以根据需要移动或删除它。
-            this.d_machinesTableAdapter.Fill(this.attDataSet.d_machines);
 
+            zhengfan = true;
+            if (!timer1.Enabled)
+            {
+                timer1.Start();
+                CmnXhLoadHandler handler = new CmnXhLoadHandler(XHCmnDownLoadData);
+                using (CmnLoadDataForm form = new CmnLoadDataForm("正循环下载数据正在运行中..."))
+                {
+                    double b;
+                    IAsyncResult result = handler.BeginInvoke(out b, null, null);
+                    form.AsyncResult = result;
+                    form.ShowDialog(this);
+                    handler.EndInvoke(out b, result);
+                }
+            }
         }
         /// <summary>
         /// 下载指定主机数据
@@ -208,12 +222,16 @@ namespace WinAtt
             bool start = false;
             DateTime t, n;
             t = n = DateTime.Now;
-
+            DateTime lastDay = Convert.ToDateTime(DateTime.Now.AddMonths(1).ToString("yyyy-MM-01")).AddDays(-1);
             switch (dr["updatefrequency"].ToString())
             {
                 case "1":
                     DateTime m = Convert.ToDateTime(t.ToString("yyyy-MM-") + Convert.ToDateTime(dr["updateDate"]).ToString("dd HH:mm:ss"));
                     if (DateTime.Compare(m, n) <= 0)
+                    {
+                        start = true;
+                    }
+                    if (DateTime.Now.ToString("yyyyMMdd") == lastDay.ToString("yyyyMMdd"))
                     {
                         start = true;
                     }
@@ -229,7 +247,10 @@ namespace WinAtt
                             start = true;
                         }
                     }
-
+                    if (DateTime.Now.ToString("yyyyMMdd") == lastDay.ToString("yyyyMMdd"))
+                    {
+                        start = true;
+                    }
                     break;
                 case "3":
                     DateTime d = Convert.ToDateTime(t.ToString("yyyy-MM-dd") + " " + Convert.ToDateTime(dr["updateDate"]).ToString("HH:mm:ss"));
@@ -241,14 +262,12 @@ namespace WinAtt
                     {
                         start = true;
                     }
-                    break;
-                  default:
-                    DateTime lastDay = Convert.ToDateTime(DateTime.Now.AddMonths(1).ToString("yyyy-MM-01")).AddDays(-1);
-                    if (DateTime.Now.ToString("yyyy-MM-dd") == lastDay)
+                    if (DateTime.Now.ToString("yyyyMMdd") == lastDay.ToString("yyyyMMdd"))
                     {
                         start = true;
                     }
                     break;
+
             }
             /////可以下载，
             if (start)
@@ -267,9 +286,10 @@ namespace WinAtt
                     MyThread wc = new MyThread();
                     DataTable dv;
                     if (zhengfan)
-                        dv = DBLinker.Linker.ExecuteDataTable("SELECT top 30 *  FROM [d_Machines] order by id ");
+                        dv = DBLinker.Linker.ExecuteDataTable("SELECT  *  FROM [d_Machines] order by id ");
                     else
                         dv = DBLinker.Linker.ExecuteDataTable("SELECT top 30 *  FROM [d_Machines] order by id desc");
+
                     bool rc = ThreadPool.QueueUserWorkItem(new WaitCallback(wc.RunProcess), dv);
                     if (rc)
                     {
@@ -292,7 +312,10 @@ namespace WinAtt
             }
             //如果只是这个时间可以下载，但是不符合以上两个条件，也不能下载。
         }
-        //后循环下载
+        
+        
+        
+        //反循环下载
         private void button3_Click(object sender, EventArgs e)
         {
             zhengfan = false;
@@ -310,12 +333,8 @@ namespace WinAtt
                 }
             }
         }
-
-
-
-
         /// <summary>
-        /// 循环下载数据
+        /// 反循环下载数据
         /// </summary>
         /// <param name="b"></param>
         public void XiaXHCmnDownLoadData(out double b)

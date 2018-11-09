@@ -69,13 +69,14 @@
             this.enterOrOutDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.dmachinesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1056, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(1408, 250);
             this.dataGridView1.TabIndex = 0;
             // 
             // machineAliasDataGridViewTextBoxColumn
@@ -146,18 +147,20 @@
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(0, 205);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(0, 256);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1056, 172);
+            this.listBox1.Size = new System.Drawing.Size(1407, 214);
             this.listBox1.TabIndex = 1;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(468, 385);
+            this.button2.Location = new System.Drawing.Point(624, 481);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 59);
+            this.button2.Size = new System.Drawing.Size(252, 74);
             this.button2.TabIndex = 6;
             this.button2.Text = "前循环下载";
             this.button2.UseVisualStyleBackColor = true;
@@ -166,9 +169,10 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(858, 385);
+            this.button1.Location = new System.Drawing.Point(1144, 481);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 59);
+            this.button1.Size = new System.Drawing.Size(252, 74);
             this.button1.TabIndex = 5;
             this.button1.Text = "指定下载";
             this.button1.UseVisualStyleBackColor = true;
@@ -181,9 +185,10 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(663, 385);
+            this.button3.Location = new System.Drawing.Point(884, 481);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 59);
+            this.button3.Size = new System.Drawing.Size(252, 74);
             this.button3.TabIndex = 7;
             this.button3.Text = "后循环下载";
             this.button3.UseVisualStyleBackColor = true;
@@ -191,21 +196,22 @@
             // 
             // frmOutline
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 454);
+            this.ClientSize = new System.Drawing.Size(1408, 568);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmOutline";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "数据操作";
+            this.Text = "指纹信息管理";
             this.Load += new System.EventHandler(this.frmOutline_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmachinesBindingSource)).EndInit();

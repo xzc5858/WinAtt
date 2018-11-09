@@ -16,10 +16,24 @@ namespace WinAtt
         public System.Windows.Forms.ListBox lbRTShow;
         public System.Windows.Forms.ListView lvLogs;
 
-        public static readonly ZKAccess Instance = new ZKAccess();
+        public static  ZKAccess Instance = new ZKAccess();
         //私有构造函数
         public ZKAccess()
-        { }
+        {
+            this.m_CZKEMClass = new CZKEMClass();
+            this.COM_ConnectType = 1;
+            this.COM_TCP_PORT = 0x1112;
+            this.COM_MACHINENUMBER = 0x69;
+            this.COM_BAUDRATE = 0x9600;
+            this.COM_IPAddress = "192.168.1.220";
+            this.COM_IsConnected = false;
+            this.COM_IsVerify = false;
+            this.LstVerify = new List<int>();
+            this.COM_iVerifyCount = 0;
+            this.IsOnline = true;
+            this.iGLCount = 0;
+            this.iIndex = 0;
+        }
 
         public ZKAccess(int conntype, int tcp_port, int machinenumber, int baudrate, string ip)
         {
@@ -35,7 +49,7 @@ namespace WinAtt
         /// <summary>
         /// 接口类
         /// </summary>
-        public CZKEMClass m_CZKEMClass = new CZKEMClass();
+        public zkemkeeper.CZKEMClass m_CZKEMClass = new zkemkeeper.CZKEMClass();
         /// <summary>
         /// 链接类型
         /// </summary>

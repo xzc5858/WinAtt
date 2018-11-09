@@ -12,10 +12,19 @@ namespace WinAtt
 {
     public partial class main : Form
     {
-        //ZKAccess g_ZKAccess = ZKAccess.Instance;
+        
         public main()
         {
             InitializeComponent();
+            try
+            {
+                OpenForm("Outline");  //默认打开
+                tv.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void tv_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -29,9 +38,7 @@ namespace WinAtt
         /// <param name="className"></param>
         private void OpenForm(string className)
         {
-            //g_ZKAccess.IsVerify = false;
-
-
+           
 
             Type classType = Type.GetType("WinAtt.frm" + className);              //得到类型
 
@@ -60,25 +67,5 @@ namespace WinAtt
             }
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenForm("Outline");                                                      //默认打开
-
-                //g_ZKAccess.SetIPAddress(ParamBLL.GetZKIPAddress());
-                //g_ZKAccess.SetModel(true);
-
-                //new ReVerifyBLL().GetLastReVerify();                                            //得到最后重新开始校验的时间(没有就新增一个)
-
-                //CheckDBAccess();
-
-                tv.ExpandAll();
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
     }
 }

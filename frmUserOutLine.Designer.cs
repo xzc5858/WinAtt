@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineAliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.portDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baudrateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dmachinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attDataSet = new WinAtt.attDataSet();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.duserBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -82,17 +91,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineAliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.portDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baudrateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dmachinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.attDataSet = new WinAtt.attDataSet();
             this.d_machinesTableAdapter = new WinAtt.attDataSetTableAdapters.d_machinesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmachinesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -111,8 +113,6 @@
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dmachinesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -132,458 +132,13 @@
             this.dataGridView1.DataSource = this.dmachinesBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(528, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(703, 511);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView3);
-            this.splitContainer1.Size = new System.Drawing.Size(991, 409);
-            this.splitContainer1.SplitterDistance = 528;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(459, 409);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // duserBindingSource1
-            // 
-            this.duserBindingSource1.DataMember = "d_user";
-            this.duserBindingSource1.DataSource = this.users;
-            // 
-            // users
-            // 
-            this.users.DataSetName = "users";
-            this.users.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userIDDataGridViewTextBoxColumn,
-            this.loginNameDataGridViewTextBoxColumn,
-            this.userNameDataGridViewTextBoxColumn,
-            this.enrollNumberDataGridViewTextBoxColumn,
-            this.userSexDataGridViewTextBoxColumn,
-            this.userEmailDataGridViewTextBoxColumn,
-            this.mobileDataGridViewTextBoxColumn,
-            this.associationIDDataGridViewTextBoxColumn,
-            this.roleIDDataGridViewTextBoxColumn,
-            this.userDescDataGridViewTextBoxColumn,
-            this.createUserDataGridViewTextBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn,
-            this.lastInTimeDataGridViewTextBoxColumn,
-            this.lastOutTimeDataGridViewTextBoxColumn,
-            this.machineNumberDataGridViewTextBoxColumn,
-            this.fingerIndexDataGridViewTextBoxColumn,
-            this.faceIndexDataGridViewTextBoxColumn,
-            this.fingerDataGridViewTextBoxColumn,
-            this.faceDataGridViewTextBoxColumn,
-            this.flagDataGridViewTextBoxColumn,
-            this.mPasswordDataGridViewTextBoxColumn,
-            this.privilegeDataGridViewTextBoxColumn,
-            this.enabledDataGridViewTextBoxColumn,
-            this.isEnabledDataGridViewTextBoxColumn,
-            this.fingerLengthDataGridViewTextBoxColumn,
-            this.faceLengthDataGridViewTextBoxColumn,
-            this.shiftIDDataGridViewTextBoxColumn,
-            this.cycleIDDataGridViewTextBoxColumn,
-            this.startDateDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.duserBindingSource;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(526, 237);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.userIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // loginNameDataGridViewTextBoxColumn
-            // 
-            this.loginNameDataGridViewTextBoxColumn.DataPropertyName = "LoginName";
-            this.loginNameDataGridViewTextBoxColumn.HeaderText = "用户名";
-            this.loginNameDataGridViewTextBoxColumn.Name = "loginNameDataGridViewTextBoxColumn";
-            // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "姓名";
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            // 
-            // enrollNumberDataGridViewTextBoxColumn
-            // 
-            this.enrollNumberDataGridViewTextBoxColumn.DataPropertyName = "EnrollNumber";
-            this.enrollNumberDataGridViewTextBoxColumn.HeaderText = "考勤号";
-            this.enrollNumberDataGridViewTextBoxColumn.Name = "enrollNumberDataGridViewTextBoxColumn";
-            // 
-            // userSexDataGridViewTextBoxColumn
-            // 
-            this.userSexDataGridViewTextBoxColumn.DataPropertyName = "UserSex";
-            this.userSexDataGridViewTextBoxColumn.HeaderText = "性别";
-            this.userSexDataGridViewTextBoxColumn.Name = "userSexDataGridViewTextBoxColumn";
-            // 
-            // userEmailDataGridViewTextBoxColumn
-            // 
-            this.userEmailDataGridViewTextBoxColumn.DataPropertyName = "UserEmail";
-            this.userEmailDataGridViewTextBoxColumn.HeaderText = "邮箱";
-            this.userEmailDataGridViewTextBoxColumn.Name = "userEmailDataGridViewTextBoxColumn";
-            // 
-            // mobileDataGridViewTextBoxColumn
-            // 
-            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "Mobile";
-            this.mobileDataGridViewTextBoxColumn.HeaderText = "手机号";
-            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
-            // 
-            // associationIDDataGridViewTextBoxColumn
-            // 
-            this.associationIDDataGridViewTextBoxColumn.DataPropertyName = "AssociationID";
-            this.associationIDDataGridViewTextBoxColumn.HeaderText = "AssociationID";
-            this.associationIDDataGridViewTextBoxColumn.Name = "associationIDDataGridViewTextBoxColumn";
-            // 
-            // roleIDDataGridViewTextBoxColumn
-            // 
-            this.roleIDDataGridViewTextBoxColumn.DataPropertyName = "RoleID";
-            this.roleIDDataGridViewTextBoxColumn.HeaderText = "RoleID";
-            this.roleIDDataGridViewTextBoxColumn.Name = "roleIDDataGridViewTextBoxColumn";
-            // 
-            // userDescDataGridViewTextBoxColumn
-            // 
-            this.userDescDataGridViewTextBoxColumn.DataPropertyName = "UserDesc";
-            this.userDescDataGridViewTextBoxColumn.HeaderText = "UserDesc";
-            this.userDescDataGridViewTextBoxColumn.Name = "userDescDataGridViewTextBoxColumn";
-            // 
-            // createUserDataGridViewTextBoxColumn
-            // 
-            this.createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
-            this.createUserDataGridViewTextBoxColumn.HeaderText = "CreateUser";
-            this.createUserDataGridViewTextBoxColumn.Name = "createUserDataGridViewTextBoxColumn";
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            // 
-            // lastInTimeDataGridViewTextBoxColumn
-            // 
-            this.lastInTimeDataGridViewTextBoxColumn.DataPropertyName = "LastInTime";
-            this.lastInTimeDataGridViewTextBoxColumn.HeaderText = "LastInTime";
-            this.lastInTimeDataGridViewTextBoxColumn.Name = "lastInTimeDataGridViewTextBoxColumn";
-            // 
-            // lastOutTimeDataGridViewTextBoxColumn
-            // 
-            this.lastOutTimeDataGridViewTextBoxColumn.DataPropertyName = "LastOutTime";
-            this.lastOutTimeDataGridViewTextBoxColumn.HeaderText = "LastOutTime";
-            this.lastOutTimeDataGridViewTextBoxColumn.Name = "lastOutTimeDataGridViewTextBoxColumn";
-            // 
-            // machineNumberDataGridViewTextBoxColumn
-            // 
-            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
-            // 
-            // fingerIndexDataGridViewTextBoxColumn
-            // 
-            this.fingerIndexDataGridViewTextBoxColumn.DataPropertyName = "FingerIndex";
-            this.fingerIndexDataGridViewTextBoxColumn.HeaderText = "FingerIndex";
-            this.fingerIndexDataGridViewTextBoxColumn.Name = "fingerIndexDataGridViewTextBoxColumn";
-            // 
-            // faceIndexDataGridViewTextBoxColumn
-            // 
-            this.faceIndexDataGridViewTextBoxColumn.DataPropertyName = "FaceIndex";
-            this.faceIndexDataGridViewTextBoxColumn.HeaderText = "FaceIndex";
-            this.faceIndexDataGridViewTextBoxColumn.Name = "faceIndexDataGridViewTextBoxColumn";
-            // 
-            // fingerDataGridViewTextBoxColumn
-            // 
-            this.fingerDataGridViewTextBoxColumn.DataPropertyName = "Finger";
-            this.fingerDataGridViewTextBoxColumn.HeaderText = "Finger";
-            this.fingerDataGridViewTextBoxColumn.Name = "fingerDataGridViewTextBoxColumn";
-            // 
-            // faceDataGridViewTextBoxColumn
-            // 
-            this.faceDataGridViewTextBoxColumn.DataPropertyName = "Face";
-            this.faceDataGridViewTextBoxColumn.HeaderText = "Face";
-            this.faceDataGridViewTextBoxColumn.Name = "faceDataGridViewTextBoxColumn";
-            // 
-            // flagDataGridViewTextBoxColumn
-            // 
-            this.flagDataGridViewTextBoxColumn.DataPropertyName = "Flag";
-            this.flagDataGridViewTextBoxColumn.HeaderText = "Flag";
-            this.flagDataGridViewTextBoxColumn.Name = "flagDataGridViewTextBoxColumn";
-            // 
-            // mPasswordDataGridViewTextBoxColumn
-            // 
-            this.mPasswordDataGridViewTextBoxColumn.DataPropertyName = "MPassword";
-            this.mPasswordDataGridViewTextBoxColumn.HeaderText = "MPassword";
-            this.mPasswordDataGridViewTextBoxColumn.Name = "mPasswordDataGridViewTextBoxColumn";
-            // 
-            // privilegeDataGridViewTextBoxColumn
-            // 
-            this.privilegeDataGridViewTextBoxColumn.DataPropertyName = "Privilege";
-            this.privilegeDataGridViewTextBoxColumn.HeaderText = "Privilege";
-            this.privilegeDataGridViewTextBoxColumn.Name = "privilegeDataGridViewTextBoxColumn";
-            // 
-            // enabledDataGridViewTextBoxColumn
-            // 
-            this.enabledDataGridViewTextBoxColumn.DataPropertyName = "Enabled";
-            this.enabledDataGridViewTextBoxColumn.HeaderText = "Enabled";
-            this.enabledDataGridViewTextBoxColumn.Name = "enabledDataGridViewTextBoxColumn";
-            // 
-            // isEnabledDataGridViewTextBoxColumn
-            // 
-            this.isEnabledDataGridViewTextBoxColumn.DataPropertyName = "IsEnabled";
-            this.isEnabledDataGridViewTextBoxColumn.HeaderText = "IsEnabled";
-            this.isEnabledDataGridViewTextBoxColumn.Name = "isEnabledDataGridViewTextBoxColumn";
-            // 
-            // fingerLengthDataGridViewTextBoxColumn
-            // 
-            this.fingerLengthDataGridViewTextBoxColumn.DataPropertyName = "FingerLength";
-            this.fingerLengthDataGridViewTextBoxColumn.HeaderText = "FingerLength";
-            this.fingerLengthDataGridViewTextBoxColumn.Name = "fingerLengthDataGridViewTextBoxColumn";
-            // 
-            // faceLengthDataGridViewTextBoxColumn
-            // 
-            this.faceLengthDataGridViewTextBoxColumn.DataPropertyName = "FaceLength";
-            this.faceLengthDataGridViewTextBoxColumn.HeaderText = "FaceLength";
-            this.faceLengthDataGridViewTextBoxColumn.Name = "faceLengthDataGridViewTextBoxColumn";
-            // 
-            // shiftIDDataGridViewTextBoxColumn
-            // 
-            this.shiftIDDataGridViewTextBoxColumn.DataPropertyName = "ShiftID";
-            this.shiftIDDataGridViewTextBoxColumn.HeaderText = "ShiftID";
-            this.shiftIDDataGridViewTextBoxColumn.Name = "shiftIDDataGridViewTextBoxColumn";
-            // 
-            // cycleIDDataGridViewTextBoxColumn
-            // 
-            this.cycleIDDataGridViewTextBoxColumn.DataPropertyName = "CycleID";
-            this.cycleIDDataGridViewTextBoxColumn.HeaderText = "CycleID";
-            this.cycleIDDataGridViewTextBoxColumn.Name = "cycleIDDataGridViewTextBoxColumn";
-            // 
-            // startDateDataGridViewTextBoxColumn
-            // 
-            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
-            // 
-            // duserBindingSource
-            // 
-            this.duserBindingSource.DataMember = "d_user";
-            this.duserBindingSource.DataSource = this.users;
-            // 
-            // d_userTableAdapter
-            // 
-            this.d_userTableAdapter.ClearBeforeFill = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(679, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 34);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "上传用户到指纹机";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(836, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 34);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "删除指纹机用户";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataSource = this.users;
-            this.usersBindingSource.Position = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.lblNewPensionID);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(10, -2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(653, 42);
-            this.groupBox1.TabIndex = 50;
-            this.groupBox1.TabStop = false;
-            // 
-            // lblNewPensionID
-            // 
-            this.lblNewPensionID.AutoSize = true;
-            this.lblNewPensionID.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblNewPensionID.Location = new System.Drawing.Point(107, 17);
-            this.lblNewPensionID.Name = "lblNewPensionID";
-            this.lblNewPensionID.Size = new System.Drawing.Size(0, 14);
-            this.lblNewPensionID.TabIndex = 12;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "系统用户";
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(2, 46);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(989, 237);
-            this.splitContainer2.SplitterDistance = 526;
-            this.splitContainer2.TabIndex = 51;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(459, 237);
-            this.listBox1.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(10, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(506, 40);
-            this.groupBox2.TabIndex = 52;
-            this.groupBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(107, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 14);
-            this.label1.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "指纹机用户";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(10, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(991, 458);
-            this.panel1.TabIndex = 53;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(522, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(151, 34);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "展示指纹机的用户信息";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(679, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 34);
-            this.button3.TabIndex = 53;
-            this.button3.Text = "下载指纹机用户到系统";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.splitContainer2);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Location = new System.Drawing.Point(10, 464);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(991, 283);
-            this.panel2.TabIndex = 54;
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(836, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 34);
-            this.button5.TabIndex = 52;
-            this.button5.Text = "为用户录入指纹";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -645,21 +200,520 @@
             this.attDataSet.DataSetName = "attDataSet";
             this.attDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 61);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView3);
+            this.splitContainer1.Size = new System.Drawing.Size(1321, 511);
+            this.splitContainer1.SplitterDistance = 703;
+            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(613, 511);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // duserBindingSource1
+            // 
+            this.duserBindingSource1.DataMember = "d_user";
+            this.duserBindingSource1.DataSource = this.users;
+            // 
+            // users
+            // 
+            this.users.DataSetName = "users";
+            this.users.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userIDDataGridViewTextBoxColumn,
+            this.loginNameDataGridViewTextBoxColumn,
+            this.userNameDataGridViewTextBoxColumn,
+            this.enrollNumberDataGridViewTextBoxColumn,
+            this.userSexDataGridViewTextBoxColumn,
+            this.userEmailDataGridViewTextBoxColumn,
+            this.mobileDataGridViewTextBoxColumn,
+            this.associationIDDataGridViewTextBoxColumn,
+            this.roleIDDataGridViewTextBoxColumn,
+            this.userDescDataGridViewTextBoxColumn,
+            this.createUserDataGridViewTextBoxColumn,
+            this.createTimeDataGridViewTextBoxColumn,
+            this.lastInTimeDataGridViewTextBoxColumn,
+            this.lastOutTimeDataGridViewTextBoxColumn,
+            this.machineNumberDataGridViewTextBoxColumn,
+            this.fingerIndexDataGridViewTextBoxColumn,
+            this.faceIndexDataGridViewTextBoxColumn,
+            this.fingerDataGridViewTextBoxColumn,
+            this.faceDataGridViewTextBoxColumn,
+            this.flagDataGridViewTextBoxColumn,
+            this.mPasswordDataGridViewTextBoxColumn,
+            this.privilegeDataGridViewTextBoxColumn,
+            this.enabledDataGridViewTextBoxColumn,
+            this.isEnabledDataGridViewTextBoxColumn,
+            this.fingerLengthDataGridViewTextBoxColumn,
+            this.faceLengthDataGridViewTextBoxColumn,
+            this.shiftIDDataGridViewTextBoxColumn,
+            this.cycleIDDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.duserBindingSource;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(701, 296);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.userIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // loginNameDataGridViewTextBoxColumn
+            // 
+            this.loginNameDataGridViewTextBoxColumn.DataPropertyName = "LoginName";
+            this.loginNameDataGridViewTextBoxColumn.HeaderText = "用户名";
+            this.loginNameDataGridViewTextBoxColumn.Name = "loginNameDataGridViewTextBoxColumn";
+            this.loginNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "姓名";
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // enrollNumberDataGridViewTextBoxColumn
+            // 
+            this.enrollNumberDataGridViewTextBoxColumn.DataPropertyName = "EnrollNumber";
+            this.enrollNumberDataGridViewTextBoxColumn.HeaderText = "考勤号";
+            this.enrollNumberDataGridViewTextBoxColumn.Name = "enrollNumberDataGridViewTextBoxColumn";
+            this.enrollNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userSexDataGridViewTextBoxColumn
+            // 
+            this.userSexDataGridViewTextBoxColumn.DataPropertyName = "UserSex";
+            this.userSexDataGridViewTextBoxColumn.HeaderText = "性别";
+            this.userSexDataGridViewTextBoxColumn.Name = "userSexDataGridViewTextBoxColumn";
+            this.userSexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userEmailDataGridViewTextBoxColumn
+            // 
+            this.userEmailDataGridViewTextBoxColumn.DataPropertyName = "UserEmail";
+            this.userEmailDataGridViewTextBoxColumn.HeaderText = "邮箱";
+            this.userEmailDataGridViewTextBoxColumn.Name = "userEmailDataGridViewTextBoxColumn";
+            this.userEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mobileDataGridViewTextBoxColumn
+            // 
+            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "Mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "手机号";
+            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
+            this.mobileDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // associationIDDataGridViewTextBoxColumn
+            // 
+            this.associationIDDataGridViewTextBoxColumn.DataPropertyName = "AssociationID";
+            this.associationIDDataGridViewTextBoxColumn.HeaderText = "AssociationID";
+            this.associationIDDataGridViewTextBoxColumn.Name = "associationIDDataGridViewTextBoxColumn";
+            this.associationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleIDDataGridViewTextBoxColumn
+            // 
+            this.roleIDDataGridViewTextBoxColumn.DataPropertyName = "RoleID";
+            this.roleIDDataGridViewTextBoxColumn.HeaderText = "RoleID";
+            this.roleIDDataGridViewTextBoxColumn.Name = "roleIDDataGridViewTextBoxColumn";
+            this.roleIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userDescDataGridViewTextBoxColumn
+            // 
+            this.userDescDataGridViewTextBoxColumn.DataPropertyName = "UserDesc";
+            this.userDescDataGridViewTextBoxColumn.HeaderText = "UserDesc";
+            this.userDescDataGridViewTextBoxColumn.Name = "userDescDataGridViewTextBoxColumn";
+            this.userDescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createUserDataGridViewTextBoxColumn
+            // 
+            this.createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
+            this.createUserDataGridViewTextBoxColumn.HeaderText = "CreateUser";
+            this.createUserDataGridViewTextBoxColumn.Name = "createUserDataGridViewTextBoxColumn";
+            this.createUserDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastInTimeDataGridViewTextBoxColumn
+            // 
+            this.lastInTimeDataGridViewTextBoxColumn.DataPropertyName = "LastInTime";
+            this.lastInTimeDataGridViewTextBoxColumn.HeaderText = "LastInTime";
+            this.lastInTimeDataGridViewTextBoxColumn.Name = "lastInTimeDataGridViewTextBoxColumn";
+            this.lastInTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastOutTimeDataGridViewTextBoxColumn
+            // 
+            this.lastOutTimeDataGridViewTextBoxColumn.DataPropertyName = "LastOutTime";
+            this.lastOutTimeDataGridViewTextBoxColumn.HeaderText = "LastOutTime";
+            this.lastOutTimeDataGridViewTextBoxColumn.Name = "lastOutTimeDataGridViewTextBoxColumn";
+            this.lastOutTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // machineNumberDataGridViewTextBoxColumn
+            // 
+            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
+            this.machineNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fingerIndexDataGridViewTextBoxColumn
+            // 
+            this.fingerIndexDataGridViewTextBoxColumn.DataPropertyName = "FingerIndex";
+            this.fingerIndexDataGridViewTextBoxColumn.HeaderText = "FingerIndex";
+            this.fingerIndexDataGridViewTextBoxColumn.Name = "fingerIndexDataGridViewTextBoxColumn";
+            this.fingerIndexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // faceIndexDataGridViewTextBoxColumn
+            // 
+            this.faceIndexDataGridViewTextBoxColumn.DataPropertyName = "FaceIndex";
+            this.faceIndexDataGridViewTextBoxColumn.HeaderText = "FaceIndex";
+            this.faceIndexDataGridViewTextBoxColumn.Name = "faceIndexDataGridViewTextBoxColumn";
+            this.faceIndexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fingerDataGridViewTextBoxColumn
+            // 
+            this.fingerDataGridViewTextBoxColumn.DataPropertyName = "Finger";
+            this.fingerDataGridViewTextBoxColumn.HeaderText = "Finger";
+            this.fingerDataGridViewTextBoxColumn.Name = "fingerDataGridViewTextBoxColumn";
+            this.fingerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // faceDataGridViewTextBoxColumn
+            // 
+            this.faceDataGridViewTextBoxColumn.DataPropertyName = "Face";
+            this.faceDataGridViewTextBoxColumn.HeaderText = "Face";
+            this.faceDataGridViewTextBoxColumn.Name = "faceDataGridViewTextBoxColumn";
+            this.faceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // flagDataGridViewTextBoxColumn
+            // 
+            this.flagDataGridViewTextBoxColumn.DataPropertyName = "Flag";
+            this.flagDataGridViewTextBoxColumn.HeaderText = "Flag";
+            this.flagDataGridViewTextBoxColumn.Name = "flagDataGridViewTextBoxColumn";
+            this.flagDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mPasswordDataGridViewTextBoxColumn
+            // 
+            this.mPasswordDataGridViewTextBoxColumn.DataPropertyName = "MPassword";
+            this.mPasswordDataGridViewTextBoxColumn.HeaderText = "MPassword";
+            this.mPasswordDataGridViewTextBoxColumn.Name = "mPasswordDataGridViewTextBoxColumn";
+            this.mPasswordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // privilegeDataGridViewTextBoxColumn
+            // 
+            this.privilegeDataGridViewTextBoxColumn.DataPropertyName = "Privilege";
+            this.privilegeDataGridViewTextBoxColumn.HeaderText = "Privilege";
+            this.privilegeDataGridViewTextBoxColumn.Name = "privilegeDataGridViewTextBoxColumn";
+            this.privilegeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // enabledDataGridViewTextBoxColumn
+            // 
+            this.enabledDataGridViewTextBoxColumn.DataPropertyName = "Enabled";
+            this.enabledDataGridViewTextBoxColumn.HeaderText = "Enabled";
+            this.enabledDataGridViewTextBoxColumn.Name = "enabledDataGridViewTextBoxColumn";
+            this.enabledDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isEnabledDataGridViewTextBoxColumn
+            // 
+            this.isEnabledDataGridViewTextBoxColumn.DataPropertyName = "IsEnabled";
+            this.isEnabledDataGridViewTextBoxColumn.HeaderText = "IsEnabled";
+            this.isEnabledDataGridViewTextBoxColumn.Name = "isEnabledDataGridViewTextBoxColumn";
+            this.isEnabledDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fingerLengthDataGridViewTextBoxColumn
+            // 
+            this.fingerLengthDataGridViewTextBoxColumn.DataPropertyName = "FingerLength";
+            this.fingerLengthDataGridViewTextBoxColumn.HeaderText = "FingerLength";
+            this.fingerLengthDataGridViewTextBoxColumn.Name = "fingerLengthDataGridViewTextBoxColumn";
+            this.fingerLengthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // faceLengthDataGridViewTextBoxColumn
+            // 
+            this.faceLengthDataGridViewTextBoxColumn.DataPropertyName = "FaceLength";
+            this.faceLengthDataGridViewTextBoxColumn.HeaderText = "FaceLength";
+            this.faceLengthDataGridViewTextBoxColumn.Name = "faceLengthDataGridViewTextBoxColumn";
+            this.faceLengthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftIDDataGridViewTextBoxColumn
+            // 
+            this.shiftIDDataGridViewTextBoxColumn.DataPropertyName = "ShiftID";
+            this.shiftIDDataGridViewTextBoxColumn.HeaderText = "ShiftID";
+            this.shiftIDDataGridViewTextBoxColumn.Name = "shiftIDDataGridViewTextBoxColumn";
+            this.shiftIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cycleIDDataGridViewTextBoxColumn
+            // 
+            this.cycleIDDataGridViewTextBoxColumn.DataPropertyName = "CycleID";
+            this.cycleIDDataGridViewTextBoxColumn.HeaderText = "CycleID";
+            this.cycleIDDataGridViewTextBoxColumn.Name = "cycleIDDataGridViewTextBoxColumn";
+            this.cycleIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            this.startDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duserBindingSource
+            // 
+            this.duserBindingSource.DataMember = "d_user";
+            this.duserBindingSource.DataSource = this.users;
+            // 
+            // d_userTableAdapter
+            // 
+            this.d_userTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(905, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 42);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "上传用户到指纹机";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(1115, 12);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 42);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "删除指纹机用户";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataSource = this.users;
+            this.usersBindingSource.Position = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lblNewPensionID);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Location = new System.Drawing.Point(13, -2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(871, 52);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblNewPensionID
+            // 
+            this.lblNewPensionID.AutoSize = true;
+            this.lblNewPensionID.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblNewPensionID.Location = new System.Drawing.Point(143, 21);
+            this.lblNewPensionID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewPensionID.Name = "lblNewPensionID";
+            this.lblNewPensionID.Size = new System.Drawing.Size(0, 17);
+            this.lblNewPensionID.TabIndex = 12;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 24);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 15);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "系统用户";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer2.Location = new System.Drawing.Point(3, 58);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer2.Size = new System.Drawing.Size(1319, 296);
+            this.splitContainer2.SplitterDistance = 701;
+            this.splitContainer2.SplitterWidth = 5;
+            this.splitContainer2.TabIndex = 51;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(613, 296);
+            this.listBox1.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(13, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(675, 50);
+            this.groupBox2.TabIndex = 52;
+            this.groupBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(143, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "指纹机用户";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.splitContainer1);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Location = new System.Drawing.Point(13, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1321, 572);
+            this.panel1.TabIndex = 53;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(696, 11);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(201, 42);
+            this.button4.TabIndex = 54;
+            this.button4.Text = "展示指纹机的用户信息";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(905, 11);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(201, 42);
+            this.button3.TabIndex = 53;
+            this.button3.Text = "下载指纹机用户到系统";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.splitContainer2);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Location = new System.Drawing.Point(13, 580);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1321, 354);
+            this.panel2.TabIndex = 54;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Location = new System.Drawing.Point(1115, 8);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(197, 42);
+            this.button5.TabIndex = 52;
+            this.button5.Text = "为用户录入指纹";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // d_machinesTableAdapter
             // 
             this.d_machinesTableAdapter.ClearBeforeFill = true;
             // 
             // frmUserOutLine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 747);
+            this.ClientSize = new System.Drawing.Size(1351, 934);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmUserOutLine";
-            this.Text = "UserOutLine";
+            this.Text = "人员信息管理";
             this.Load += new System.EventHandler(this.frmUserOutLine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmachinesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attDataSet)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -680,8 +734,6 @@
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dmachinesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
